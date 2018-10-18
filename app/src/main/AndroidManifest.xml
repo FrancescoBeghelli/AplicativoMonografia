@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CadastroPessoalActivity" />
+        <activity android:name=".AtividadeFisicaActivity" />
+        <activity android:name=".AlimentacaoActivity" />
+        <activity android:name=".MetaObjetivoActivity"></activity>
     </application>
 
 </manifest>
