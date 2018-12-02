@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class CadastroPessoalDbHelper extends SQLiteOpenHelper {
 
-    public final static int DATABASE_VERSION = 1;
+    public final static int DATABASE_VERSION = 2;
     public final static String DATABASE_NAME = "CadastroPessoal.db";
 
     public CadastroPessoalDbHelper(Context context) {
@@ -16,6 +16,12 @@ public class CadastroPessoalDbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CadastroPessoalContract.CadastroPessoal.CREATE_CADASTROPESSOAL);
+
+        inicializeUsuario(db);
+    }
+
+    private void inicializeUsuario(SQLiteDatabase db){
+        CadastroPessoalContract.saveUsuario(db,"João das Couves","10","Masculino", "140","30");
     }
 
     @Override
