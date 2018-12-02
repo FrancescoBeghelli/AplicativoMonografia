@@ -20,7 +20,8 @@
         <activity android:name=".AtividadeFisicaActivity" />
         <activity android:name=".AlimentacaoActivity" />
         <activity android:name=".MetaObjetivoActivity" />
-        <activity android:name=".CadastroUsuarioDetailsActivity"></activity>
+        <activity android:name=".CadastroUsuarioDetailsActivity" />
+        <activity android:name=".CadastroUsuarioEditActivity"></activity>
     </application>
 
 </manifest>
