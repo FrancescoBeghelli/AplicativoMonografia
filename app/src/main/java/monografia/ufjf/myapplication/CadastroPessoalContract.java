@@ -20,7 +20,7 @@ public class CadastroPessoalContract {
                 + CadastroPessoal.COLUMN_NAME_NOME + " TEXT, "
                 + CadastroPessoal.COLUMN_NAME_IDADE + " TEXT, "
                 + CadastroPessoal.COLUMN_NAME_SEXO + " TEXT, "
-                + CadastroPessoal.COLUMN_NAME_ALTURA + " TEXT "
+                + CadastroPessoal.COLUMN_NAME_ALTURA + " TEXT, "
                 + CadastroPessoal.COLUMN_NAME_PESO + " TEXT "
                 +")";
         public static final String DROP_CADASTROPESSOAL = "DROP TABLE IF EXISTS " + CadastroPessoal.TABLE_NAME;
