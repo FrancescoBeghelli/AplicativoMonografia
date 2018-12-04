@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         btnAtivFis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,AtividadeFisicaActivity.class);
+                Intent i = new Intent(MainActivity.this,AtividadeActivity.class);
                 startActivity(i);
             }
         });

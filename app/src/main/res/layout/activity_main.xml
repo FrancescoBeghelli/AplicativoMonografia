@@ -32,7 +32,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="5dp"
-        android:text="Atividade Fisíca"
+        android:text="Atividade"
         app:layout_constraintBottom_toTopOf="@+id/btnAlimentacao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

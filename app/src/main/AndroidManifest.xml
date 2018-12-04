@@ -21,7 +21,10 @@
         <activity android:name=".AlimentacaoActivity" />
         <activity android:name=".MetaObjetivoActivity" />
         <activity android:name=".CadastroUsuarioDetailsActivity" />
-        <activity android:name=".CadastroUsuarioEditActivity"></activity>
+        <activity android:name=".CadastroUsuarioEditActivity" />
+        <activity android:name=".CadastroAtividadeFisicaActivity" />
+        <activity android:name=".CadastroAlimentacaoActivity" />
+        <activity android:name=".CadastroEstudoActivity"></activity>
     </application>
 
 </manifest>
