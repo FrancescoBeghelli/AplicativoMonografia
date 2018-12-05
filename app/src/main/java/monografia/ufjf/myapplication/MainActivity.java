@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private static UsuarioAdapter usuarioAdapter;
 
     public static final int REQUEST_DETAILS_EVENT = 1;
+    public static final int REQUEST_CAD_PESSOA = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
         btnCadPessoal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,CadastroPessoalActivity.class);
-                startActivity(i);
+                Intent i = new Intent(MainActivity.this, CadastroPessoalActivity.class);
+                startActivityForResult(i, REQUEST_CAD_PESSOA);
             }
         });
 
@@ -77,13 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        /*if(requestCode == REQUEST_CREATE_PERSON && resultCode == Activity.RESULT_OK)
-            handleParticipanteCad();
-        else if(requestCode == REQUEST_CREATE_EVENT && resultCode == Activity.RESULT_OK )
-            handleEventoCad();
-        else if(requestCode == REQUEST_DETAILS_PERSON)
-            handleParticipanteCad();
-        else*/ if(requestCode == REQUEST_DETAILS_EVENT)
+        if((requestCode == REQUEST_DETAILS_EVENT ||requestCode == REQUEST_CAD_PESSOA )&& resultCode == Activity.RESULT_OK)
             handleUsuario();
     }
 
