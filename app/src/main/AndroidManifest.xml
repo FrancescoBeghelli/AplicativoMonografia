@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".CadastroPessoalActivity" />
-        <activity android:name=".AtividadeFisicaActivity" />
+        <activity android:name=".AtividadeActivity" />
         <activity android:name=".AlimentacaoActivity" />
         <activity android:name=".MetaObjetivoActivity" />
         <activity android:name=".CadastroUsuarioDetailsActivity" />
