@@ -29,38 +29,42 @@ public class CadastroAtividadeFisicaActivity extends AppCompatActivity {
         edtDistPercorrida = (EditText) findViewById(R.id.edtDistPercorrida);
         btnCadastrarAtividadeFisica = (Button)findViewById(R.id.btnCadastrarAtividadeFisica);
 
-        tempo = Double.parseDouble(edtTempoGasto.toString());
-        distancia = Double.parseDouble(edtDistPercorrida.toString());
-
-        switch (edtNomeAtividade.toString()) {
-            case "":
-                Toast.makeText(CadastroAtividadeFisicaActivity.this, "Precisa Preencher a Atividade Feita", Toast.LENGTH_SHORT).show();
-            case "Corrida":
-                pontuacao = tempo*distancia;
-                break;
-            case "Caminhada":
-                pontuacao = (tempo*distancia)*0.6;
-                break;
-            case "Natação":
-                pontuacao = (tempo*distancia)*1.4;
-                break;
-            case "Futebol":
-                pontuacao = (tempo*distancia)*1.3;
-                break;
-            case "Andar de Bicicleta":
-                distancia = 1.0;
-                pontuacao = (tempo*distancia)*0.9;
-                break;
-            default:
-                Toast.makeText(CadastroAtividadeFisicaActivity.this, "Atividade Fisica não cadastrada", Toast.LENGTH_SHORT).show();
-        }
-
         btnCadastrarAtividadeFisica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AtividadeFisicaContract.saveAtividade(new CadastroPessoalDbHelper(CadastroAtividadeFisicaActivity.this).getWritableDatabase(),
-                        edtNomeAtividade.getText().toString(), edtTempoGasto.getText().toString(), edtDistPercorrida.getText().toString(), pontuacao.toString());
-                setResult(Activity.RESULT_OK);
+                if(!edtTempoGasto.getText().toString().isEmpty() && !!edtDistPercorrida.getText().toString().isEmpty()) {
+                    tempo = Double.parseDouble(edtTempoGasto.getText().toString());
+                    distancia = Double.parseDouble(edtDistPercorrida.getText().toString());
+
+                    switch (edtNomeAtividade.getText().toString()) {
+                        case "":
+                            Toast.makeText(CadastroAtividadeFisicaActivity.this, "Precisa Preencher a Atividade Feita", Toast.LENGTH_SHORT).show();
+                        case "Corrida":
+                            pontuacao = tempo * distancia;
+                            break;
+                        case "Caminhada":
+                            pontuacao = (tempo * distancia) * 0.6;
+                            break;
+                        case "Natação":
+                            pontuacao = (tempo * distancia) * 1.4;
+                            break;
+                        case "Futebol":
+                            pontuacao = (tempo * distancia) * 1.3;
+                            break;
+                        case "Andar de Bicicleta":
+                            distancia = 1.0;
+                            pontuacao = (tempo * distancia) * 0.9;
+                            break;
+                        default:
+                            Toast.makeText(CadastroAtividadeFisicaActivity.this, "Atividade Fisica não cadastrada", Toast.LENGTH_SHORT).show();
+                    }
+
+                    AtividadeFisicaContract.saveAtividade(new CadastroPessoalDbHelper(CadastroAtividadeFisicaActivity.this).getWritableDatabase(),
+                            edtNomeAtividade.getText().toString(), edtTempoGasto.getText().toString(), edtDistPercorrida.getText().toString(), pontuacao.toString());
+                    setResult(Activity.RESULT_OK);
+                }
+                else
+                    Toast.makeText(CadastroAtividadeFisicaActivity.this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
             }
         });
 
