@@ -4,13 +4,15 @@ import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class CadastroAtividadeFisicaActivity extends AppCompatActivity {
 
-    private EditText edtNomeAtividade;
     private EditText edtTempoGasto;
     private EditText edtDistPercorrida;
     private Double pontuacao;
@@ -18,16 +20,36 @@ public class CadastroAtividadeFisicaActivity extends AppCompatActivity {
     private Double distancia;
     private Button btnCadastrarAtividadeFisica;
 
+    private Spinner listaAtividades;
+
+    private String atividadeSelecionada;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_atividade_fisica);
 
-        edtNomeAtividade = (EditText) findViewById(R.id.edtNomeAtividade);
         edtTempoGasto = (EditText) findViewById(R.id.edtTempoGasto);
         edtDistPercorrida = (EditText) findViewById(R.id.edtDistPercorrida);
         btnCadastrarAtividadeFisica = (Button)findViewById(R.id.btnCadastrarAtividadeFisica);
+        listaAtividades = (Spinner)findViewById(R.id.spinListaAtividades);
+
+        ArrayAdapter adapterSpinner = ArrayAdapter.createFromResource(CadastroAtividadeFisicaActivity.this, R.array.lista_atividade,android.R.layout.simple_spinner_item);
+        listaAtividades.setAdapter(adapterSpinner);
+
+        AdapterView.OnItemSelectedListener atividadeEscolhida = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                atividadeSelecionada = listaAtividades.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        };
+        listaAtividades.setOnItemSelectedListener(atividadeEscolhida);
 
         btnCadastrarAtividadeFisica.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,7 +58,7 @@ public class CadastroAtividadeFisicaActivity extends AppCompatActivity {
                     tempo = Double.parseDouble(edtTempoGasto.getText().toString());
                     distancia = Double.parseDouble(edtDistPercorrida.getText().toString());
 
-                    switch (edtNomeAtividade.getText().toString()) {
+                    switch (atividadeSelecionada) {
                         case "":
                             Toast.makeText(CadastroAtividadeFisicaActivity.this, "Precisa Preencher a Atividade Feita", Toast.LENGTH_SHORT).show();
                         case "Corrida":
@@ -60,7 +82,7 @@ public class CadastroAtividadeFisicaActivity extends AppCompatActivity {
                     }
 
                     AtividadeFisicaContract.saveAtividade(new CadastroPessoalDbHelper(CadastroAtividadeFisicaActivity.this).getWritableDatabase(),
-                            edtNomeAtividade.getText().toString(), edtTempoGasto.getText().toString(), edtDistPercorrida.getText().toString(), pontuacao.toString());
+                            atividadeSelecionada, edtTempoGasto.getText().toString(), edtDistPercorrida.getText().toString(), pontuacao.toString());
                     setResult(Activity.RESULT_OK);
                 }
                 else

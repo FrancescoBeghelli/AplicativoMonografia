@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Monografia</string>
+
+    <string-array name="lista_atividade">
+        <item>Corrida</item>
+        <item>Caminhada</item>
+        <item>Natação</item>
+        <item>Futebol</item>
+        <item>Andar de Bicicleta</item>
+    </string-array>
 </resources>

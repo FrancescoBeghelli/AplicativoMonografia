@@ -93,17 +93,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-        usuarioAdapter.setOnUsuarioLongClickListener(new UsuarioAdapter.onUsuarioLongClickListener() {
-            @Override
-            public void onUsuarioLongClick(View usuarioView, int itemId) {
-                //db.delete(InscricaoContract.Inscricao.TABLE_NAME, InscricaoContract.Inscricao.COLUMN_NAME_ID_EVENTO + " = ? ", new String[]{Integer.toString(itemId)});
-                //db.delete(EventoContract.Evento.TABLE_NAME, EventoContract.Evento._ID + " = ? ", new String[]{Integer.toString(itemId)});
-                //Toast.makeText(MainActivity.this, "Evento removido com sucesso.", Toast.LENGTH_SHORT).show();
 
-                //usuarioAdapter.notifyItemRemoved(lstUsuario.getChildLayoutPosition(usuarioView));
-                //usuarioAdapter.setCursor(CadastroPessoalContract.getCadastroPessoalCursor(db, null, null));
-            }
-        });
         lstUsuario.setLayoutManager(new LinearLayoutManager(this));
         lstUsuario.swapAdapter(usuarioAdapter, false);
     }
