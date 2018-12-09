@@ -56,8 +56,7 @@ public class AtividadeFisicaContract {
         Cursor cursor = db.rawQuery("SELECT SUM(" + Atividade.COLUMN_NAME_PONTO + ") FROM " + Atividade.TABLE_NAME, null);
         if(cursor.getCount() > 0) {
             cursor.moveToFirst();
-            double valor = cursor.getDouble(0);
-            return valor;
+            return cursor.getDouble(0);
         }
         else
             return 0;

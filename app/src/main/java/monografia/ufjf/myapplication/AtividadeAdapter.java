@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class AtividadeAdapter extends RecyclerView.Adapter<AtividadeAdapter.ViewHolder> {
 
     private Cursor cursor;
@@ -53,11 +55,13 @@ public class AtividadeAdapter extends RecyclerView.Adapter<AtividadeAdapter.View
     @Override
     public void onBindViewHolder(@NonNull AtividadeAdapter.ViewHolder viewHolder, int i) {
         int idxTitulo = cursor.getColumnIndexOrThrow(AtividadeFisicaContract.Atividade.COLUMN_NAME_NOME);
+        int idxPonto = cursor.getColumnIndexOrThrow(AtividadeFisicaContract.Atividade.COLUMN_NAME_PONTO);
         int idxId = cursor.getColumnIndexOrThrow(AtividadeFisicaContract.Atividade._ID);
         cursor.moveToPosition(i);
         viewHolder.txtNomeAtividadeMain.setText(cursor.getString(idxTitulo));
-
+        viewHolder.txtPonto.setText(String.format("%.2f", cursor.getDouble(idxPonto)));
         final int id = cursor.getInt(idxId);
+
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,10 +90,12 @@ public class AtividadeAdapter extends RecyclerView.Adapter<AtividadeAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         public TextView txtNomeAtividadeMain;
+        public TextView txtPonto;
 
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
             txtNomeAtividadeMain = (TextView)itemView.findViewById(R.id.txtNomeAtividadeMain);
+            txtPonto = (TextView)itemView.findViewById(R.id.txtPontoAtividadeUsuario);
         }
     }
 

@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -24,8 +26,8 @@ public class CadastroUsuarioDetailsActivity extends AppCompatActivity {
     private int id;
 
     private SQLiteDatabase db;
-    private static UsuarioAdapter adapterUsuario;
-
+    private AtividadeAdapter adapter;
+    private RecyclerView lstAtividade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,5 +76,13 @@ public class CadastroUsuarioDetailsActivity extends AppCompatActivity {
             }
         });
 
+        lstAtividade = (RecyclerView)findViewById(R.id.lstAtividadeUsuario);
+        handleAtividade();
+    }
+
+    private void handleAtividade() {
+        adapter = new AtividadeAdapter(AtividadeFisicaContract.getAtividadeCursor(db, null, null));
+        lstAtividade.setLayoutManager(new LinearLayoutManager(this));
+        lstAtividade.swapAdapter(adapter, false);
     }
 }
