@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class CadastroPessoalDbHelper extends SQLiteOpenHelper {
 
-    public final static int DATABASE_VERSION = 3;
+    public final static int DATABASE_VERSION = 5;
     public final static String DATABASE_NAME = "CadastroPessoal.db";
 
     public CadastroPessoalDbHelper(Context context) {
@@ -27,7 +27,7 @@ public class CadastroPessoalDbHelper extends SQLiteOpenHelper {
     }
 
     private void inicializeAtividade(SQLiteDatabase db){
-        AtividadeFisicaContract.saveAtividade(db,"Corrida","10","2", "30");
+        AtividadeFisicaContract.saveAtividade(db,"Corrida",10.00,2.00, 30.00);
     }
 
     @Override

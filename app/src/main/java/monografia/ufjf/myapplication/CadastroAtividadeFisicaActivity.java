@@ -82,7 +82,7 @@ public class CadastroAtividadeFisicaActivity extends AppCompatActivity {
                     }
 
                     AtividadeFisicaContract.saveAtividade(new CadastroPessoalDbHelper(CadastroAtividadeFisicaActivity.this).getWritableDatabase(),
-                            atividadeSelecionada, edtTempoGasto.getText().toString(), edtDistPercorrida.getText().toString(), pontuacao.toString());
+                            atividadeSelecionada, tempo, distancia, pontuacao);
                     setResult(Activity.RESULT_OK);
                 }
                 else

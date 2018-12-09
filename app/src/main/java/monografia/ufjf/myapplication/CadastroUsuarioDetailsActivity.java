@@ -3,7 +3,6 @@ package monografia.ufjf.myapplication;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,11 +18,14 @@ public class CadastroUsuarioDetailsActivity extends AppCompatActivity {
     private TextView txtSexo;
     private TextView txtAltura;
     private TextView txtPeso;
+    private TextView txtPonto;
+
     private Button btnEdtUsuario;
     private int id;
 
     private SQLiteDatabase db;
     private static UsuarioAdapter adapterUsuario;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class CadastroUsuarioDetailsActivity extends AppCompatActivity {
         txtSexo = (TextView)findViewById(R.id.txtSexoUsuarioDetalhes);
         txtAltura = (TextView)findViewById(R.id.txtAlturaUsuarioDetalhes);
         txtPeso = (TextView)findViewById(R.id.txtPesoUsuarioDetalhes);
+        txtPonto = (TextView) findViewById(R.id.txtPontoUsuarioDetalhes);
         btnEdtUsuario = (Button)findViewById(R.id.btnEditarUsuarioDetalhes);
 
         Cursor cursor = CadastroPessoalContract.getCadastroPessoalCursor(db,CadastroPessoalContract.CadastroPessoal._ID+" = ?",new String[] {Integer.toString(id)});
@@ -55,6 +58,8 @@ public class CadastroUsuarioDetailsActivity extends AppCompatActivity {
         txtAltura.setText(cursor.getString(idxAltura));
         txtPeso.setText(cursor.getString(idxPeso));
 
+        txtPonto.setText(String.format("%.2f", AtividadeFisicaContract.getSumAtividade(db)));
+
         btnEdtUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,8 +73,6 @@ public class CadastroUsuarioDetailsActivity extends AppCompatActivity {
                 startActivityForResult(i, REQUEST_UPDATE_USUARIO);
             }
         });
-
-
 
     }
 }
