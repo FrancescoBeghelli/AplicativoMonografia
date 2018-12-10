@@ -54,7 +54,7 @@ public class CadastroAtividadeFisicaActivity extends AppCompatActivity {
         btnCadastrarAtividadeFisica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!edtTempoGasto.getText().toString().isEmpty() && !!edtDistPercorrida.getText().toString().isEmpty()) {
+                if(!edtTempoGasto.getText().toString().isEmpty() && !edtDistPercorrida.getText().toString().isEmpty()) {
                     tempo = Double.parseDouble(edtTempoGasto.getText().toString());
                     distancia = Double.parseDouble(edtDistPercorrida.getText().toString());
 
@@ -84,6 +84,8 @@ public class CadastroAtividadeFisicaActivity extends AppCompatActivity {
                     AtividadeFisicaContract.saveAtividade(new CadastroPessoalDbHelper(CadastroAtividadeFisicaActivity.this).getWritableDatabase(),
                             atividadeSelecionada, tempo, distancia, pontuacao);
                     setResult(Activity.RESULT_OK);
+                    Toast.makeText(CadastroAtividadeFisicaActivity.this, "Atividade cadastrada. Você ganhou "+ pontuacao +" pontos.", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
                 else
                     Toast.makeText(CadastroAtividadeFisicaActivity.this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
