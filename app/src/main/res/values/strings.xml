@@ -8,4 +8,39 @@
         <item>Futebol</item>
         <item>Andar de Bicicleta</item>
     </string-array>
+
+    <string-array name="lista_alimentacao">
+        <item>Café da Manhã</item>
+        <item>Almoço</item>
+        <item>Café da Tarde</item>
+        <item>Jantar</item>
+        <item>Lanche</item>
+    </string-array>
+
+    <string-array name="lista_bebida">
+        <item>Nenhuma</item>
+        <item>Água</item>
+        <item>Suco</item>
+        <item>Refrigerante</item>
+        <item>Café com Leite</item>
+        <item>Achocolatado</item>
+        <item>Leite</item>
+    </string-array>
+
+    <string-array name="lista_quantidade">
+        <item>Pouco</item>
+        <item>Médio</item>
+        <item>Bastante</item>
+        <item>Exagerado</item>
+    </string-array>
+
+    <string-array name="lista_estudo">
+        <item>Ler Livro</item>
+        <item>Assistir Aula</item>
+        <item>Jogar</item>
+        <item>Fazer Tarefa da Escola</item>
+    </string-array>
+
+
+
 </resources>

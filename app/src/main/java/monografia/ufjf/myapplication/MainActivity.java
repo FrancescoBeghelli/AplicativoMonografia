@@ -59,13 +59,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        btnAliment.setOnClickListener(new View.OnClickListener() {
+        /*btnAliment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,AlimentacaoActivity.class);
                 startActivity(i);
             }
-        });
+        });*/
         btnMetaObj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
