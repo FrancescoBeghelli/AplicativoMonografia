@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class CadastroPessoalDbHelper extends SQLiteOpenHelper {
 
-    public final static int DATABASE_VERSION = 6;
+    public final static int DATABASE_VERSION = 7;
     public final static String DATABASE_NAME = "CadastroPessoal.db";
 
     public CadastroPessoalDbHelper(Context context) {
@@ -17,6 +17,8 @@ public class CadastroPessoalDbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CadastroPessoalContract.CadastroPessoal.CREATE_CADASTROPESSOAL);
         db.execSQL(AtividadeFisicaContract.Atividade.CREATE_ATIVIDADE);
+        db.execSQL(EstudoContract.Estudo.CREATE_ESTUDO);
+        db.execSQL(AlimentacaoContract.Alimentacao.CREATE_ALIMENTACAO);
 
         inicializeUsuario(db);
         inicializeAtividade(db);
@@ -34,6 +36,8 @@ public class CadastroPessoalDbHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(CadastroPessoalContract.CadastroPessoal.DROP_CADASTROPESSOAL);
         db.execSQL(AtividadeFisicaContract.Atividade.DROP_CREATE_ATIVIDADE);
+        db.execSQL(EstudoContract.Estudo.DROP_CREATE_ESTUDO);
+        db.execSQL(AlimentacaoContract.Alimentacao.DROP_CREATE_ALIMENTACAO);
 
         onCreate(db);
     }
