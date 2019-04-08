@@ -241,7 +241,6 @@ public class CadastroAlimentacaoActivity extends AppCompatActivity {
                     pontuacao = (bebida+alimentacao+sobremesa)*quantidade;
                 }
 
-
                 //AtividadeFisicaContract.saveAtividade(new CadastroPessoalDbHelper(CadastroAlimentacaoActivity.this).getWritableDatabase(),
                 //            alimentacaoSelecionada,bebidaSelecionada,quantidadeSelecionada, pontuacao);
                     setResult(Activity.RESULT_OK);
