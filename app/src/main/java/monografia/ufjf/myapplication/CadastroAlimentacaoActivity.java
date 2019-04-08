@@ -17,6 +17,8 @@ public class CadastroAlimentacaoActivity extends AppCompatActivity {
     private Spinner listaAlimentacao;
     private Spinner listaBebida;
     private Spinner listaQuantidade;
+    private Spinner listaDiaDaSemana;
+    private Spinner listaSobremesa;
 
     private Double pontuacao;
 
@@ -26,6 +28,10 @@ public class CadastroAlimentacaoActivity extends AppCompatActivity {
     private Double bebida;
     private String quantidadeSelecionada;
     private Double quantidade;
+    private String diaSelecionado;
+    private Double dia;
+    private String sobremesaSelecionada;
+    private Double sobremesa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +43,8 @@ public class CadastroAlimentacaoActivity extends AppCompatActivity {
         listaAlimentacao = (Spinner)findViewById(R.id.spinListaAlimentacao);
         listaBebida = (Spinner)findViewById(R.id.spinListaBebida);
         listaQuantidade = (Spinner)findViewById(R.id.spinListaQuant);
+        listaDiaDaSemana = (Spinner)findViewById(R.id.spinListaDiaSemana);
+        listaSobremesa = (Spinner)findViewById(R.id.spinListaSobremesa);
 
         ArrayAdapter adapterSpinnerAlim = ArrayAdapter.createFromResource(CadastroAlimentacaoActivity.this, R.array.lista_alimentacao,android.R.layout.simple_spinner_item);
         listaAlimentacao.setAdapter(adapterSpinnerAlim);
@@ -44,6 +52,10 @@ public class CadastroAlimentacaoActivity extends AppCompatActivity {
         listaBebida.setAdapter(adapterSpinnerBeb);
         ArrayAdapter adapterSpinnerQtd = ArrayAdapter.createFromResource(CadastroAlimentacaoActivity.this, R.array.lista_quantidade,android.R.layout.simple_spinner_item);
         listaQuantidade.setAdapter(adapterSpinnerQtd);
+        ArrayAdapter adapterSpinnerDiaSem = ArrayAdapter.createFromResource(CadastroAlimentacaoActivity.this, R.array.lista_diasdasemana,android.R.layout.simple_spinner_item);
+        listaDiaDaSemana.setAdapter(adapterSpinnerDiaSem);
+        ArrayAdapter adapterSpinnerSobremesa = ArrayAdapter.createFromResource(CadastroAlimentacaoActivity.this, R.array.lista_sobremesa,android.R.layout.simple_spinner_item);
+        listaSobremesa.setAdapter(adapterSpinnerSobremesa);
 
         AdapterView.OnItemSelectedListener alimentacaoEscolhida = new AdapterView.OnItemSelectedListener() {
             @Override
@@ -83,6 +95,32 @@ public class CadastroAlimentacaoActivity extends AppCompatActivity {
             }
         };
         listaQuantidade.setOnItemSelectedListener(quantidadeEscolhida);
+
+        AdapterView.OnItemSelectedListener diaEscolhido = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                diaSelecionado = listaDiaDaSemana.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        };
+        listaDiaDaSemana.setOnItemSelectedListener(diaEscolhido);
+
+        AdapterView.OnItemSelectedListener sobremesaEscolhida = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                sobremesaSelecionada = listaSobremesa.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        };
+        listaSobremesa.setOnItemSelectedListener(sobremesaEscolhida);
 
         btnCadastrarAlimentacao.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,7 +162,7 @@ public class CadastroAlimentacaoActivity extends AppCompatActivity {
                         bebida = 50.0;
                         break;
                     case "Achocolatado":
-                        bebida = 25.0;
+                        bebida = -25.0;
                         break;
                     case "Leite":
                         bebida = 50.0;
@@ -135,9 +173,9 @@ public class CadastroAlimentacaoActivity extends AppCompatActivity {
 
                 switch (quantidadeSelecionada) {
                     case "Pouco":
-                        quantidade = 0.75;
+                        quantidade = 1.0;
                         break;
-                    case "Médio":
+                    case "Certa":
                         quantidade = 2.0;
                         break;
                     case "Bastante":
@@ -150,7 +188,59 @@ public class CadastroAlimentacaoActivity extends AppCompatActivity {
                         Toast.makeText(CadastroAlimentacaoActivity.this, "Bebida não cadastrada", Toast.LENGTH_SHORT).show();
                 }
 
-                pontuacao = (bebida+alimentacao)*quantidade;
+                if(diaSelecionado=="Domingo" || diaSelecionado=="Sábado"){
+                    switch (sobremesaSelecionada) {
+                        case "Nenhuma":
+                            quantidade = 25.0;
+                            break;
+                        case "Fruta":
+                            quantidade = 40.0;
+                            break;
+                        case "Doce":
+                            quantidade = 10.0;
+                            break;
+                        case "Gelatina":
+                            quantidade = 25.0;
+                            break;
+                        case "Sorvete":
+                            quantidade = 10.0;
+                            break;
+                        case "Outra sobremesa":
+                            quantidade = 5.0;
+                            break;
+                        default:
+                            Toast.makeText(CadastroAlimentacaoActivity.this, "Bebida não cadastrada", Toast.LENGTH_SHORT).show();
+                    }
+
+                    pontuacao = (bebida+alimentacao+sobremesa)*quantidade;
+
+                }else{
+
+                    switch (sobremesaSelecionada) {
+                        case "Nenhuma":
+                            quantidade = 5.0;
+                            break;
+                        case "Fruta":
+                            quantidade = 8.0;
+                            break;
+                        case "Doce":
+                            quantidade = -20.0;
+                            break;
+                        case "Gelatina":
+                            quantidade = 5.0;
+                            break;
+                        case "Sorvete":
+                            quantidade = -20.0;
+                            break;
+                        case "Outra sobremesa":
+                            quantidade = -20.0;
+                            break;
+                        default:
+                            Toast.makeText(CadastroAlimentacaoActivity.this, "Bebida não cadastrada", Toast.LENGTH_SHORT).show();
+                    }
+                    pontuacao = (bebida+alimentacao+sobremesa)*quantidade;
+                }
+
 
                 //AtividadeFisicaContract.saveAtividade(new CadastroPessoalDbHelper(CadastroAlimentacaoActivity.this).getWritableDatabase(),
                 //            alimentacaoSelecionada,bebidaSelecionada,quantidadeSelecionada, pontuacao);

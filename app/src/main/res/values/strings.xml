@@ -29,7 +29,7 @@
 
     <string-array name="lista_quantidade">
         <item>Pouco</item>
-        <item>Médio</item>
+        <item>Certa</item>
         <item>Bastante</item>
         <item>Exagerado</item>
     </string-array>
@@ -41,6 +41,24 @@
         <item>Fazer Tarefa da Escola</item>
     </string-array>
 
+    <string-array name="lista_diasdasemana">
+        <item>Domingo</item>
+        <item>Segunda-feira</item>
+        <item>Terça-feira</item>
+        <item>Quarta-feira</item>
+        <item>Quinta-feira</item>
+        <item>Sexta-feira</item>
+        <item>Sábado</item>
+    </string-array>
+
+    <string-array name="lista_sobremesa">
+        <item>Nenhuma</item>
+        <item>Fruta</item>
+        <item>Doce</item>
+        <item>Gelatina</item>
+        <item>Sorvete</item>
+        <item>Outra sobremesa</item>
+    </string-array>
 
 
 </resources>
