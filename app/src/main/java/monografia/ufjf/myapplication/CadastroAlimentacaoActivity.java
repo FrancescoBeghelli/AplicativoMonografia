@@ -191,22 +191,22 @@ public class CadastroAlimentacaoActivity extends AppCompatActivity {
                 if(diaSelecionado=="Domingo" || diaSelecionado=="Sábado"){
                     switch (sobremesaSelecionada) {
                         case "Nenhuma":
-                            quantidade = 25.0;
+                            sobremesa = 25.0;
                             break;
                         case "Fruta":
-                            quantidade = 40.0;
+                            sobremesa = 40.0;
                             break;
                         case "Doce":
-                            quantidade = 10.0;
+                            sobremesa = 10.0;
                             break;
                         case "Gelatina":
-                            quantidade = 25.0;
+                            sobremesa = 25.0;
                             break;
                         case "Sorvete":
-                            quantidade = 10.0;
+                            sobremesa = 10.0;
                             break;
                         case "Outra sobremesa":
-                            quantidade = 5.0;
+                            sobremesa = 5.0;
                             break;
                         default:
                             Toast.makeText(CadastroAlimentacaoActivity.this, "Bebida não cadastrada", Toast.LENGTH_SHORT).show();
@@ -218,22 +218,22 @@ public class CadastroAlimentacaoActivity extends AppCompatActivity {
 
                     switch (sobremesaSelecionada) {
                         case "Nenhuma":
-                            quantidade = 5.0;
+                            sobremesa = 5.0;
                             break;
                         case "Fruta":
-                            quantidade = 8.0;
+                            sobremesa = 8.0;
                             break;
                         case "Doce":
-                            quantidade = -20.0;
+                            sobremesa = -20.0;
                             break;
                         case "Gelatina":
-                            quantidade = 5.0;
+                            sobremesa = 5.0;
                             break;
                         case "Sorvete":
-                            quantidade = -20.0;
+                            sobremesa = -20.0;
                             break;
                         case "Outra sobremesa":
-                            quantidade = -20.0;
+                            sobremesa = -20.0;
                             break;
                         default:
                             Toast.makeText(CadastroAlimentacaoActivity.this, "Bebida não cadastrada", Toast.LENGTH_SHORT).show();
