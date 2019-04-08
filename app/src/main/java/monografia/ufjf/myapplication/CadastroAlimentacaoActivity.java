@@ -212,8 +212,6 @@ public class CadastroAlimentacaoActivity extends AppCompatActivity {
                             Toast.makeText(CadastroAlimentacaoActivity.this, "Bebida não cadastrada", Toast.LENGTH_SHORT).show();
                     }
 
-                    pontuacao = (bebida+alimentacao+sobremesa)*quantidade;
-
                 }else{
 
                     switch (sobremesaSelecionada) {
@@ -238,9 +236,10 @@ public class CadastroAlimentacaoActivity extends AppCompatActivity {
                         default:
                             Toast.makeText(CadastroAlimentacaoActivity.this, "Bebida não cadastrada", Toast.LENGTH_SHORT).show();
                     }
-                    pontuacao = (bebida+alimentacao+sobremesa)*quantidade;
+
                 }
 
+                pontuacao = (bebida+alimentacao+sobremesa)*quantidade;
                 //AtividadeFisicaContract.saveAtividade(new CadastroPessoalDbHelper(CadastroAlimentacaoActivity.this).getWritableDatabase(),
                 //            alimentacaoSelecionada,bebidaSelecionada,quantidadeSelecionada, pontuacao);
                     setResult(Activity.RESULT_OK);
