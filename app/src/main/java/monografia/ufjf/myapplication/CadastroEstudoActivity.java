@@ -73,8 +73,8 @@ public class CadastroEstudoActivity extends AppCompatActivity {
                             Toast.makeText(CadastroEstudoActivity.this, "Estudo não cadastrada", Toast.LENGTH_SHORT).show();
                     }
 
-                    //AtividadeFisicaContract.saveAtividade(new CadastroPessoalDbHelper(CadastroEstudoActivity.this).getWritableDatabase(),
-                    //        estudoSelecionado, tempo, pontuacao);
+                    EstudoContract.saveEstudo(new CadastroPessoalDbHelper(CadastroEstudoActivity.this).getWritableDatabase(),
+                            estudoSelecionado, tempo, pontuacao);
                     setResult(Activity.RESULT_OK);
                     Toast.makeText(CadastroEstudoActivity.this, "Estudo. Você ganhou "+ pontuacao +" pontos.", Toast.LENGTH_SHORT).show();
                     finish();
