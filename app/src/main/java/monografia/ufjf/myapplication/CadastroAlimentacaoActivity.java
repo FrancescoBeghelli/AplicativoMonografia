@@ -188,60 +188,188 @@ public class CadastroAlimentacaoActivity extends AppCompatActivity {
                         Toast.makeText(CadastroAlimentacaoActivity.this, "Bebida não cadastrada", Toast.LENGTH_SHORT).show();
                 }
 
-                if(diaSelecionado=="Domingo" || diaSelecionado=="Sábado"){
-                    switch (sobremesaSelecionada) {
-                        case "Nenhuma":
-                            sobremesa = 25.0;
-                            break;
-                        case "Fruta":
-                            sobremesa = 40.0;
-                            break;
-                        case "Doce":
-                            sobremesa = 10.0;
-                            break;
-                        case "Gelatina":
-                            sobremesa = 25.0;
-                            break;
-                        case "Sorvete":
-                            sobremesa = 10.0;
-                            break;
-                        case "Outra sobremesa":
-                            sobremesa = 5.0;
-                            break;
-                        default:
-                            Toast.makeText(CadastroAlimentacaoActivity.this, "Bebida não cadastrada", Toast.LENGTH_SHORT).show();
-                    }
+                switch (diaSelecionado) {
+                    case "Domingo":
+                        switch (sobremesaSelecionada) {
+                            case "Nenhuma":
+                                sobremesa = 25.0;
+                                break;
+                            case "Fruta":
+                                sobremesa = 40.0;
+                                break;
+                            case "Doce":
+                                sobremesa = 10.0;
+                                break;
+                            case "Gelatina":
+                                sobremesa = 25.0;
+                                break;
+                            case "Sorvete":
+                                sobremesa = 10.0;
+                                break;
+                            case "Outra sobremesa":
+                                sobremesa = 5.0;
+                                break;
+                            default:
+                                Toast.makeText(CadastroAlimentacaoActivity.this, "Bebida não cadastrada", Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+                    case "Segunda-feira":
+                        switch (sobremesaSelecionada) {
+                            case "Nenhuma":
+                                sobremesa = 5.0;
+                                break;
+                            case "Fruta":
+                                sobremesa = 8.0;
+                                break;
+                            case "Doce":
+                                sobremesa = -20.0;
+                                break;
+                            case "Gelatina":
+                                sobremesa = 5.0;
+                                break;
+                            case "Sorvete":
+                                sobremesa = -20.0;
+                                break;
+                            case "Outra sobremesa":
+                                sobremesa = -20.0;
+                                break;
+                            default:
+                                Toast.makeText(CadastroAlimentacaoActivity.this, "Bebida não cadastrada", Toast.LENGTH_SHORT).show();
 
-                }else{
+                        }
+                        break;
+                    case "Terça-feira":
+                        switch (sobremesaSelecionada) {
+                            case "Nenhuma":
+                                sobremesa = 5.0;
+                                break;
+                            case "Fruta":
+                                sobremesa = 8.0;
+                                break;
+                            case "Doce":
+                                sobremesa = -20.0;
+                                break;
+                            case "Gelatina":
+                                sobremesa = 5.0;
+                                break;
+                            case "Sorvete":
+                                sobremesa = -20.0;
+                                break;
+                            case "Outra sobremesa":
+                                sobremesa = -20.0;
+                                break;
+                            default:
+                                Toast.makeText(CadastroAlimentacaoActivity.this, "Bebida não cadastrada", Toast.LENGTH_SHORT).show();
 
-                    switch (sobremesaSelecionada) {
-                        case "Nenhuma":
-                            sobremesa = 5.0;
-                            break;
-                        case "Fruta":
-                            sobremesa = 8.0;
-                            break;
-                        case "Doce":
-                            sobremesa = -20.0;
-                            break;
-                        case "Gelatina":
-                            sobremesa = 5.0;
-                            break;
-                        case "Sorvete":
-                            sobremesa = -20.0;
-                            break;
-                        case "Outra sobremesa":
-                            sobremesa = -20.0;
-                            break;
-                        default:
-                            Toast.makeText(CadastroAlimentacaoActivity.this, "Bebida não cadastrada", Toast.LENGTH_SHORT).show();
-                    }
+                        }
+                        break;
+                    case "Quarta-feira":
+                        switch (sobremesaSelecionada) {
+                            case "Nenhuma":
+                                sobremesa = 5.0;
+                                break;
+                            case "Fruta":
+                                sobremesa = 8.0;
+                                break;
+                            case "Doce":
+                                sobremesa = -20.0;
+                                break;
+                            case "Gelatina":
+                                sobremesa = 5.0;
+                                break;
+                            case "Sorvete":
+                                sobremesa = -20.0;
+                                break;
+                            case "Outra sobremesa":
+                                sobremesa = -20.0;
+                                break;
+                            default:
+                                Toast.makeText(CadastroAlimentacaoActivity.this, "Bebida não cadastrada", Toast.LENGTH_SHORT).show();
 
+                        }
+                        break;
+                    case "Quinta-feira":
+                        switch (sobremesaSelecionada) {
+                            case "Nenhuma":
+                                sobremesa = 5.0;
+                                break;
+                            case "Fruta":
+                                sobremesa = 8.0;
+                                break;
+                            case "Doce":
+                                sobremesa = -20.0;
+                                break;
+                            case "Gelatina":
+                                sobremesa = 5.0;
+                                break;
+                            case "Sorvete":
+                                sobremesa = -20.0;
+                                break;
+                            case "Outra sobremesa":
+                                sobremesa = -20.0;
+                                break;
+                            default:
+                                Toast.makeText(CadastroAlimentacaoActivity.this, "Bebida não cadastrada", Toast.LENGTH_SHORT).show();
+
+                        }
+                        break;
+                    case "Sexta-feira":
+                        switch (sobremesaSelecionada) {
+                            case "Nenhuma":
+                                sobremesa = 5.0;
+                                break;
+                            case "Fruta":
+                                sobremesa = 8.0;
+                                break;
+                            case "Doce":
+                                sobremesa = -20.0;
+                                break;
+                            case "Gelatina":
+                                sobremesa = 5.0;
+                                break;
+                            case "Sorvete":
+                                sobremesa = -20.0;
+                                break;
+                            case "Outra sobremesa":
+                                sobremesa = -20.0;
+                                break;
+                            default:
+                                Toast.makeText(CadastroAlimentacaoActivity.this, "Bebida não cadastrada", Toast.LENGTH_SHORT).show();
+
+                        }
+                        break;
+                    case "Sábado":
+                        switch (sobremesaSelecionada) {
+                            case "Nenhuma":
+                                sobremesa = 25.0;
+                                break;
+                            case "Fruta":
+                                sobremesa = 40.0;
+                                break;
+                            case "Doce":
+                                sobremesa = 10.0;
+                                break;
+                            case "Gelatina":
+                                sobremesa = 25.0;
+                                break;
+                            case "Sorvete":
+                                sobremesa = 10.0;
+                                break;
+                            case "Outra sobremesa":
+                                sobremesa = 5.0;
+                                break;
+                            default:
+                                Toast.makeText(CadastroAlimentacaoActivity.this, "Bebida não cadastrada", Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+                    default:
+                        Toast.makeText(CadastroAlimentacaoActivity.this, "Bebida não cadastrada", Toast.LENGTH_SHORT).show();
                 }
+
 
                 pontuacao = (bebida+alimentacao+sobremesa)*quantidade;
                 //AtividadeFisicaContract.saveAtividade(new CadastroPessoalDbHelper(CadastroAlimentacaoActivity.this).getWritableDatabase(),
-                //            alimentacaoSelecionada,bebidaSelecionada,quantidadeSelecionada, pontuacao);
+                //            alimentacaoSelecionada,bebidaSelecionada,quantidadeSelecionada,sobremesaSelecionada,diaSelecionado, pontuacao);
                     setResult(Activity.RESULT_OK);
                     Toast.makeText(CadastroAlimentacaoActivity.this, "Alimentação cadastrada. Você ganhou "+ pontuacao +" pontos.", Toast.LENGTH_SHORT).show();
                     finish();

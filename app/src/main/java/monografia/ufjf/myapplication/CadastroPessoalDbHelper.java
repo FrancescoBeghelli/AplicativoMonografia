@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class CadastroPessoalDbHelper extends SQLiteOpenHelper {
 
-    public final static int DATABASE_VERSION = 5;
+    public final static int DATABASE_VERSION = 6;
     public final static String DATABASE_NAME = "CadastroPessoal.db";
 
     public CadastroPessoalDbHelper(Context context) {
