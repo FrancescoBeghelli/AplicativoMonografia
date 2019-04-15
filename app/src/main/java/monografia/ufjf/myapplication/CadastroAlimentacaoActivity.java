@@ -368,8 +368,8 @@ public class CadastroAlimentacaoActivity extends AppCompatActivity {
 
 
                 pontuacao = (bebida+alimentacao+sobremesa)*quantidade;
-                //AtividadeFisicaContract.saveAtividade(new CadastroPessoalDbHelper(CadastroAlimentacaoActivity.this).getWritableDatabase(),
-                //            alimentacaoSelecionada,bebidaSelecionada,quantidadeSelecionada,sobremesaSelecionada,diaSelecionado, pontuacao);
+                AlimentacaoContract.saveAlimentacao(new CadastroPessoalDbHelper(CadastroAlimentacaoActivity.this).getWritableDatabase(),
+                            alimentacaoSelecionada,bebidaSelecionada,quantidadeSelecionada,diaSelecionado,sobremesaSelecionada, pontuacao);
                     setResult(Activity.RESULT_OK);
                     Toast.makeText(CadastroAlimentacaoActivity.this, "Alimentação cadastrada. Você ganhou "+ pontuacao +" pontos.", Toast.LENGTH_SHORT).show();
                     finish();

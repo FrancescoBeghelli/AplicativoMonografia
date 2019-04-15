@@ -25,6 +25,7 @@ public class CadastroUsuarioDetailsActivity extends AppCompatActivity {
     private TextView txtPonto;
 
     private Button btnEdtUsuario;
+    private Button btnHistorico;
     private int id;
 
     private SQLiteDatabase db;
@@ -48,6 +49,7 @@ public class CadastroUsuarioDetailsActivity extends AppCompatActivity {
         txtPeso = (TextView)findViewById(R.id.txtPesoUsuarioDetalhes);
         txtPonto = (TextView) findViewById(R.id.txtPontoUsuarioDetalhes);
         btnEdtUsuario = (Button)findViewById(R.id.btnEditarUsuarioDetalhes);
+        btnHistorico = (Button)findViewById(R.id.btnHistoricos);
 
         getInfoPessoa();
 
@@ -62,6 +64,14 @@ public class CadastroUsuarioDetailsActivity extends AppCompatActivity {
                 i.putExtra("altura", txtAltura.getText().toString());
                 i.putExtra("peso", txtPeso.getText().toString());
                 startActivityForResult(i, REQUEST_UPDATE_USUARIO);
+            }
+        });
+
+        btnHistorico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(CadastroUsuarioDetailsActivity.this, HistoricoActivity.class);
+                startActivity(i);
             }
         });
 

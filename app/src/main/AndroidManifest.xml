@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".HistoricoActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +24,7 @@
         <activity android:name=".CadastroUsuarioEditActivity" />
         <activity android:name=".CadastroAtividadeFisicaActivity" />
         <activity android:name=".CadastroAlimentacaoActivity" />
-        <activity android:name=".CadastroEstudoActivity"></activity>
+        <activity android:name=".CadastroEstudoActivity" />
     </application>
 
 </manifest>
